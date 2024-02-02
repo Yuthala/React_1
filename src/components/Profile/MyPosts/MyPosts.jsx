@@ -6,10 +6,13 @@ const MyPosts = () => {
 	return (
 		<div className={classes.content}>
 
-			<div>
-				My posts
+			<div className={classes.postsBlock}>
+				<h3>My posts</h3>
 				<div>
-					New post
+					<textarea></textarea>
+				</div>
+				<div>
+					<button>Add Post</button>
 				</div>
 				<div className={classes.posts}>
 					<Post message= 'Hi, how are you?'/>
