@@ -28,17 +28,25 @@ const Dialogs = () => {
 		{id: 6, name: 'Valera'}
 	];
 
+	let messagesData = [
+		{message: 'Hi!'},
+		{message: 'How are you?'},
+		{message: 'Yo!'},
+		{message: 'Yo!!'},
+		{message: 'Yo'}
+	]
+
 
 	return (
 		<div className={classes.dialogs}>
 			Dialogs
 			<div className={classes.dialogsItems}>
-				<DialogItem name="User1" id="1"/>
-				<DialogItem name="User2" id="2"/>
-				<DialogItem name="User3" id="3"/>
-				<DialogItem name="User4" id="4"/>
-				<DialogItem name="User5" id="5"/>
-				<DialogItem name="User6" id="6"/>
+				<DialogItem name={dialogsData[0].name} id={dialogsData[0].id} />
+				<DialogItem name={dialogsData[1].name} id={dialogsData[1].id} />
+				<DialogItem name={dialogsData[2].name} id={dialogsData[2].id} />
+				<DialogItem name={dialogsData[3].name} id={dialogsData[3].id} />
+				<DialogItem name={dialogsData[4].name} id={dialogsData[4].id} />
+				<DialogItem name={dialogsData[5].name} id={dialogsData[5].id} />
 				{/* <div className={classes.dialog}>
 					<NavLink to="/dialogs/2">User 2</NavLink>
 				</div>
@@ -56,9 +64,9 @@ const Dialogs = () => {
 				</div> */}
 			</div>
 			<div className={classes.messages}>
-				<Message message="Hi!" />
-				<Message message="How are you?" />
-				<Message message="Yo!" />
+				<Message message={messagesData[0].message} />
+				<Message message={messagesData[1].message} />
+				<Message message={messagesData[2].message} />
 				{/* <div className={classes.message}>How are you?</div>
 				<div className={classes.message}>Yo!</div> */}
 			</div>
