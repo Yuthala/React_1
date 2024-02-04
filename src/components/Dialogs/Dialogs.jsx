@@ -18,6 +18,12 @@ const Message = (props) => {
 };
 
 const Dialogs = () => {
+
+	let d = {
+		id: 1,
+		name: 'Dimych'
+	};
+
 	return (
 		<div className={classes.dialogs}>
 			Dialogs
