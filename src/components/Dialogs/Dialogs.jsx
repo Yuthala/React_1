@@ -19,10 +19,15 @@ const Message = (props) => {
 
 const Dialogs = () => {
 
-	let d = {
-		id: 1,
-		name: 'Dimych'
-	};
+	let dialogsData = [
+		{id: 1, name: 'Dimych'},
+		{id: 2, name: 'Andrew'},
+		{id: 3, name: 'Sasha'},
+		{id: 4, name: 'Sveta'},
+		{id: 5, name: 'Viktor'},
+		{id: 6, name: 'Valera'}
+	];
+
 
 	return (
 		<div className={classes.dialogs}>
