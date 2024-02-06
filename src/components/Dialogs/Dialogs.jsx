@@ -18,8 +18,8 @@ const Message = (props) => {
 };
 
 const Dialogs = () => {
-
-	let dialogsData = [
+//данные
+	let dialogs = [
 		{id: 1, name: 'Dimych'},
 		{id: 2, name: 'Andrew'},
 		{id: 3, name: 'Sasha'},
@@ -28,13 +28,7 @@ const Dialogs = () => {
 		{id: 6, name: 'Valera'}
 	];
 
-	let dialogsElements = 
-	[<DialogItem name={dialogsData[0].name} id={dialogsData[0].id} />,
-	<DialogItem name={dialogsData[1].name} id={dialogsData[1].id} />,
-	<DialogItem name={dialogsData[2].name} id={dialogsData[2].id} />
-	];
-
-	let messagesData = [
+	let messages = [
 		{message: 'Hi!'},
 		{message: 'How are you?'},
 		{message: 'Yo!'},
@@ -42,29 +36,27 @@ const Dialogs = () => {
 		{message: 'Yo'}
 	]
 
+	//получаем JSx элементы
+	let dialogsElements = dialogs
+		.map( d => <DialogItem name={d.name} id={d.id} />); //d = dialog
+
+	let messagesElements = messages
+		.map( m => <Message message={m.message} />); //m - messages
 
 	return (
 		<div className={classes.dialogs}>
 			Dialogs
 			<div className={classes.dialogsItems}>
-
 				{
 					dialogsElements
 				}
 
-				{/* <DialogItem name={dialogsData[0].name} id={dialogsData[0].id} />
-				<DialogItem name={dialogsData[1].name} id={dialogsData[1].id} />
-				<DialogItem name={dialogsData[2].name} id={dialogsData[2].id} />
-				<DialogItem name={dialogsData[3].name} id={dialogsData[3].id} />
-				<DialogItem name={dialogsData[4].name} id={dialogsData[4].id} />
-				<DialogItem name={dialogsData[5].name} id={dialogsData[5].id} /> */}
 			</div>
+
 			<div className={classes.messages}>
-				<Message message={messagesData[0].message} />
-				<Message message={messagesData[1].message} />
-				<Message message={messagesData[2].message} />
-				{/* <div className={classes.message}>How are you?</div>
-				<div className={classes.message}>Yo!</div> */}
+				{
+					messagesElements
+				}
 			</div>
 		</div>
 	)
