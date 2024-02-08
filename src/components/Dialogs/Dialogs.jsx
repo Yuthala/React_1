@@ -1,15 +1,7 @@
 import classes from './Dialogs.module.css';
-import {NavLink} from 'react-router-dom';
+import DialogItem from './DialogItem/DialogItem.jsx';
+//import Message from './Message/Message.jsx';
 
-const DialogItem = (props) => { //компонента, которая через props принимает динамически изменяющиеся данные
-	let path = "/dialogs/" + props.id;
-
-	return (
-		<div className={classes.dialog + ' ' + classes.active}>
-			<NavLink to={path}>{props.name}</NavLink>
-		</div>
-	)
-};
 
 const Message = (props) => {
 	return (
