@@ -1,13 +1,13 @@
 import classes from './Dialogs.module.css';
 import DialogItem from './DialogItem/DialogItem.jsx';
-//import Message from './Message/Message.jsx';
+import Message from './Message/Message.jsx';
 
 
-const Message = (props) => {
-	return (
-		<div className={classes.message}>{props.message}</div>
-	)
-};
+// const Message = (props) => {
+// 	return (
+// 		<div className={classes.message}>{props.message}</div>
+// 	)
+// };
 
 const Dialogs = () => {
 //данные
@@ -26,7 +26,7 @@ const Dialogs = () => {
 		{message: 'Yo!'},
 		{message: 'Yo!!'},
 		{message: 'Yo'}
-	]
+	];
 
 	//получаем JSx элементы
 	let dialogsElements = dialogs
@@ -35,6 +35,7 @@ const Dialogs = () => {
 	let messagesElements = messages
 		.map( m => <Message message={m.message} />); //m - messages
 
+	//отрисовываем элементы
 	return (
 		<div className={classes.dialogs}>
 			Dialogs
