@@ -1,21 +1,13 @@
 import classes from './Dialogs.module.css';
-import {NavLink} from 'react-router-dom';
+import DialogItem from './DialogItem/DialogItem.jsx';
+import Message from './Message/Message.jsx';
 
-const DialogItem = (props) => { //компонента, которая через props принимает динамически изменяющиеся данные
-	let path = "/dialogs/" + props.id;
 
-	return (
-		<div className={classes.dialog + ' ' + classes.active}>
-			<NavLink to={path}>{props.name}</NavLink>
-		</div>
-	)
-};
-
-const Message = (props) => {
-	return (
-		<div className={classes.message}>{props.message}</div>
-	)
-};
+// const Message = (props) => {
+// 	return (
+// 		<div className={classes.message}>{props.message}</div>
+// 	)
+// };
 
 const Dialogs = () => {
 //данные
@@ -34,7 +26,7 @@ const Dialogs = () => {
 		{message: 'Yo!'},
 		{message: 'Yo!!'},
 		{message: 'Yo'}
-	]
+	];
 
 	//получаем JSx элементы
 	let dialogsElements = dialogs
@@ -43,6 +35,7 @@ const Dialogs = () => {
 	let messagesElements = messages
 		.map( m => <Message message={m.message} />); //m - messages
 
+	//отрисовываем элементы
 	return (
 		<div className={classes.dialogs}>
 			Dialogs
