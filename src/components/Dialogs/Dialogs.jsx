@@ -10,46 +10,35 @@ import Message from './Message/Message.jsx';
 // };
 
 const Dialogs = () => {
-//данные
-	let dialogs = [
-		{id: 1, name: 'Dimych'},
-		{id: 2, name: 'Andrew'},
-		{id: 3, name: 'Sasha'},
-		{id: 4, name: 'Sveta'},
-		{id: 5, name: 'Viktor'},
-		{id: 6, name: 'Valera'}
+
+	let dialogsData = [
+		{id: 1, name: 'user 1'},
+		{id: 2, name: 'user 2'},
+		{id: 3, name: 'user 3'},
+		{id: 4, name: 'user 4'},
+		{id: 5, name: 'user 5'},
+		{id: 6, name: 'user 6'}
 	];
 
-	let messages = [
-		{message: 'Hi!'},
-		{message: 'How are you?'},
-		{message: 'Yo!'},
-		{message: 'Yo!!'},
-		{message: 'Yo'}
+	let messagesData = [
+		{id: 1, message: "Hi!"},
+		{id: 1, message: "How are you?"},
+		{id: 1, message: "Yo!"}
 	];
 
-	//получаем JSx элементы
-	let dialogsElements = dialogs
-		.map( d => <DialogItem name={d.name} id={d.id} />); //d = dialog
-
-	let messagesElements = messages
-		.map( m => <Message message={m.message} />); //m - messages
-
-	//отрисовываем элементы
 	return (
 		<div className={classes.dialogs}>
 			Dialogs
 			<div className={classes.dialogsItems}>
-				{
-					dialogsElements
-				}
-
+				<DialogItem name={dialogsData[0].name} id={dialogsData[0].id}/>
+				<DialogItem name={dialogsData[1].name} id={dialogsData[1].id}/>
+				<DialogItem name={dialogsData[2].name} id={dialogsData[2].id}/>
 			</div>
 
 			<div className={classes.messages}>
-				{
-					messagesElements
-				}
+				<Message message={messagesData[0].message} id={messagesData[0].id} />
+				<Message message={messagesData[1].message} id={messagesData[1].id} />
+				<Message message={messagesData[2].message} id={messagesData[2].id} />
 			</div>
 		</div>
 	)
