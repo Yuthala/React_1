@@ -10,7 +10,7 @@ import Message from './Message/Message.jsx';
 // };
 
 const Dialogs = () => {
-
+	//данные
 	let dialogsData = [
 		{id: 1, name: 'user 1'},
 		{id: 2, name: 'user 2'},
@@ -19,26 +19,26 @@ const Dialogs = () => {
 		{id: 5, name: 'user 5'},
 		{id: 6, name: 'user 6'}
 	];
-
 	let messagesData = [
 		{id: 1, message: "Hi!"},
 		{id: 1, message: "How are you?"},
 		{id: 1, message: "Yo!"}
 	];
+	//отрисовка
+	let DialogsElements = dialogsData
+		.map( d => <DialogItem name={d.name} id={d.id} /> );
+	let MessagesElements = messagesData
+		.map( m => <Message message={m.message} id={m.id} />);
 
 	return (
 		<div className={classes.dialogs}>
 			Dialogs
 			<div className={classes.dialogsItems}>
-				<DialogItem name={dialogsData[0].name} id={dialogsData[0].id}/>
-				<DialogItem name={dialogsData[1].name} id={dialogsData[1].id}/>
-				<DialogItem name={dialogsData[2].name} id={dialogsData[2].id}/>
+				{ DialogsElements }
 			</div>
 
 			<div className={classes.messages}>
-				<Message message={messagesData[0].message} id={messagesData[0].id} />
-				<Message message={messagesData[1].message} id={messagesData[1].id} />
-				<Message message={messagesData[2].message} id={messagesData[2].id} />
+				{ MessagesElements }
 			</div>
 		</div>
 	)
