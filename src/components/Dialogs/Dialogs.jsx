@@ -2,13 +2,6 @@ import classes from './Dialogs.module.css';
 import DialogItem from './DialogItem/DialogItem.jsx';
 import Message from './Message/Message.jsx';
 
-
-// const Message = (props) => {
-// 	return (
-// 		<div className={classes.message}>{props.message}</div>
-// 	)
-// };
-
 const Dialogs = () => {
 	//данные
 	let dialogsData = [
