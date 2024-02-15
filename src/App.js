@@ -29,10 +29,6 @@ const App = (props) => {
   );
 };
 
-
-
-
-
 // function App() {
 //   return (
 //     <div className="App">
