@@ -49,7 +49,7 @@ let state = {
   };
 
   export const subscribe = (observer) => {
-	rerenderEntireTree = observer;
+	rerenderEntireTree = observer; //паттерн observer (addEvent Listener) //(publisher-subscriber)
   }
 
 export default state;
