@@ -1,7 +1,7 @@
 import React from 'react';
 import classes from './MyPosts.module.css';
 import Post from './Post/Post';
-import { updatePostText } from '../../../redux/state';
+import store from '../../../redux/state.js';
 
 const MyPosts = (props) => {
 
@@ -11,10 +11,7 @@ let PostsElements = props.posts
 	let newPostElement = React.createRef();
 
 	let addPost = () => {
-		//let text = newPostElement.current.value;
 		props.addPost();
-		//newPostElement.current.value = '';
-		//props.updatePostText('');//очистить поле после нажатия Add Post
 	};
 
 	let onPostChange = () => {
@@ -32,7 +29,7 @@ let PostsElements = props.posts
 						onChange={onPostChange} 
 						ref={newPostElement} 
 						value={props.newPostText} 
-						updatePostText={updatePostText} />
+						updatePostText={props.updatePostText} />
 				</div>
 				<div>
 					<button onClick={ addPost }>Add Post</button>
