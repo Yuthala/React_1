@@ -1,3 +1,6 @@
+const ADD_POST = 'ADD-POST';
+const UPDATE_POST_TExT = 'UPDATE-POST-TExT';
+
 let store= {
 	_state: {
 		profilePage: {
@@ -38,7 +41,7 @@ let store= {
 	  },
 
 	dispatch(action) { //action - это объект, который описывает какое действие совершить. Обязательно имеет type - название действия
-		if (action.type === 'ADD-POST') { //если action имеет тип ADD-POST
+		if (action.type === ADD_POST) { //если action имеет тип ADD-POST
 			let newPost = {
 				id: 5,
 				message: this._state.profilePage.newPostText,
@@ -47,7 +50,7 @@ let store= {
 			this._state.profilePage.posts.push(newPost);
 			this._state.profilePage.newPostText = '';
 			this.rerenderEntireTree(this._state);
-		} else if (action.type === 'UPDATE-POST-TExT') {
+		} else if (action.type === UPDATE_POST_TExT) {
 			this._state.profilePage.newPostText = action.newText;
 			this.rerenderEntireTree(this._state);
 		}
@@ -56,13 +59,13 @@ let store= {
 
 export const addPostActionCreator = () => {
 	return {
-		type: 'ADD-POST'
+		type: ADD_POST
 	}
 };
 
 export const updatePostTextActionCreator = (text) => {
 	return {
-		type: 'UPDATE-POST-TExT',
+		type: UPDATE_POST_TExT,
 		newText: text
 	}
 };
