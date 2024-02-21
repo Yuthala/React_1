@@ -33,25 +33,25 @@ let store= {
 	
 	rerenderEntireTree() {}, //callSubscriber
 
-	addPost () {
-		let newPost = {
-			id: 5,
-			message: this._state.profilePage.newPostText,
-			likesCount: 0
-		};
-		this._state.profilePage.posts.push(newPost);
-		this._state.profilePage.newPostText = '';
-		this.rerenderEntireTree(this._state);
-	  },
-
-	updatePostText (newText) {
-		this._state.profilePage.newPostText = newText;
-		this.rerenderEntireTree(this._state);
-	  },
-
 	subscribe (observer) {
 		this.rerenderEntireTree = observer; //паттерн observer (addEvent Listener) //(publisher-subscriber)
-	  }
+	  },
+
+	dispatch(action) { //action - это объект, который описывает какое действие совершить. Обязательно имеет type - название действия
+		if (action.type === 'ADD-POST') { //если action имеет тип ADD-POST
+			let newPost = {
+				id: 5,
+				message: this._state.profilePage.newPostText,
+				likesCount: 0
+			};
+			this._state.profilePage.posts.push(newPost);
+			this._state.profilePage.newPostText = '';
+			this.rerenderEntireTree(this._state);
+		} else if (action.type === 'UPDATE-POST-TExT') {
+			this._state.profilePage.newPostText = action.newText;
+			this.rerenderEntireTree(this._state);
+		}
+	}
 };
 
 // let rerenderEntireTree = () => {};

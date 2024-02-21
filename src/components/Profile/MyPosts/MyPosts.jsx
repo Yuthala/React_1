@@ -11,12 +11,13 @@ let PostsElements = props.posts
 	let newPostElement = React.createRef();
 
 	let addPost = () => {
-		props.addPost();
+		props.dispatch({type: 'ADD-POST'});
 	};
 
 	let onPostChange = () => {
 		let text = newPostElement.current.value;
-		props.updatePostText(text);
+		let action = ({type: 'UPDATE-POST-TExT', newText: text});
+		props.dispatch(action);
 	};
 
 	return (
@@ -26,7 +27,7 @@ let PostsElements = props.posts
 				<h3>My posts</h3>
 				<div>
 					<textarea 
-						onChange={onPostChange} 
+						onChange={onPostChange} //передаем функцию, но не вызываем ее
 						ref={newPostElement} 
 						value={props.newPostText} 
 						updatePostText={props.updatePostText} />
