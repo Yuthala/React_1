@@ -13,12 +13,11 @@ const App = (props) => {
         <div className='app-wrapper'>
           <Header />
           <Navbar />
-          {/* {<Profile />} */}
           <div className='app-wrapper-content'>
             <Routes>
               <Route path='/dialogs' 
                 element={<Dialogs
-                state={props.state.dialogsPage} />} />
+                store={props.store} />} />
               <Route 
                 path='/profile' 
                 element={<Profile state={props.state.profilePage} 
@@ -29,8 +28,6 @@ const App = (props) => {
           </div>
       </div>
     </BrowserRouter>
-
-
   );
 };
 

@@ -1,5 +1,7 @@
 const ADD_POST = 'ADD-POST';
 const UPDATE_POST_TExT = 'UPDATE-POST-TExT';
+const UPDATE_NEW_MESSAGE_BODY = 'UPDATE-NEW-MESSAGE-BODY';
+const SEND_MESSAGE = 'SEND-MESSAGE';
 
 let store= {
 	_state: {
@@ -27,7 +29,8 @@ let store= {
 				{id: 4, name: 'user 4'},
 				{id: 5, name: 'user 5'},
 				{id: 6, name: 'user 6'}
-			]
+			],
+			newMessageBody: ""
 		}
 	  },
 	getState() {
@@ -53,16 +56,31 @@ let store= {
 		} else if (action.type === UPDATE_POST_TExT) {
 			this._state.profilePage.newPostText = action.newText;
 			this.rerenderEntireTree(this._state);
+		} else if (action.type === UPDATE_NEW_MESSAGE_BODY) {
+			this._state.dialogsPage.newMessageBody = action.body;
+			this.rerenderEntireTree(this._state);
+		} else if (action.type === SEND_MESSAGE) {
+			let body = this._state.dialogsPage.newMessageBody;
+			this._state.dialogsPage.newMessageBody = '';
+			this._state.dialogsPage.messagesData.push({id: 6, message: body});
+			this.rerenderEntireTree(this._state);
 		}
 	}
 };
 
 export const addPostActionCreator = () => ({type: ADD_POST});
-	
 export const updatePostTextActionCreator = (text) => {
 	return {
 		type: UPDATE_POST_TExT,
 		newText: text
+	}
+};
+
+export const sendMessageCreator = () => ({type: SEND_MESSAGE});
+export const updateNewMessageBodyCreator = (body) => {
+	return {
+		type: UPDATE_NEW_MESSAGE_BODY,
+		body: body
 	}
 };
 
