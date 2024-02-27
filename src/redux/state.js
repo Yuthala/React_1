@@ -2,10 +2,10 @@ import dialogsReducer from "./dialogs-reducer";
 import profileReducer from "./profile-reducer";
 import sidebarReducer from "./sidebar-reducer";
 
-const ADD_POST = 'ADD-POST';
-const UPDATE_POST_TExT = 'UPDATE-POST-TExT';
-const UPDATE_NEW_MESSAGE_BODY = 'UPDATE-NEW-MESSAGE-BODY';
-const SEND_MESSAGE = 'SEND-MESSAGE';
+// const ADD_POST = 'ADD-POST';
+// const UPDATE_POST_TExT = 'UPDATE-POST-TExT';
+// const UPDATE_NEW_MESSAGE_BODY = 'UPDATE-NEW-MESSAGE-BODY';
+// const SEND_MESSAGE = 'SEND-MESSAGE';
 
 let store= {
 	_state: {
@@ -55,22 +55,6 @@ let store= {
 		
 		this.rerenderEntireTree(this._state);
 
-	}
-};
-
-export const addPostActionCreator = () => ({type: ADD_POST});
-export const updatePostTextActionCreator = (text) => {
-	return {
-		type: UPDATE_POST_TExT,
-		newText: text
-	}
-};
-
-export const sendMessageCreator = () => ({type: SEND_MESSAGE});
-export const updateNewMessageBodyCreator = (body) => {
-	return {
-		type: UPDATE_NEW_MESSAGE_BODY,
-		body: body
 	}
 };
 
