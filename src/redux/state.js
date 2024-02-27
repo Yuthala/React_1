@@ -1,5 +1,5 @@
-import profileReducer from "./profile-reducer";
 import dialogsReducer from "./dialogs-reducer";
+import profileReducer from "./profile-reducer";
 import sidebarReducer from "./sidebar-reducer";
 
 const ADD_POST = 'ADD-POST';
@@ -48,13 +48,13 @@ let store= {
 	  },
 
 	dispatch(action) { //action - это объект, который описывает какое действие совершить. Обязательно имеет type - название действия
-		//REDUCRES
-		this._state.profilePage = profileReducer(this._state.profilePage, action); //передаем profileReducer ту часть state, которая относится к этому редьюсеру (profilePage) + весть action и вызываем его
-		//this._state.profilePage - присваиваем новое значение profilePage и кладем его в тот же объект state
+		
+		this._state.profilePage = profileReducer(this._state.profilePage, action);
 		this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action);
 		this._state.sidebar = sidebarReducer(this._state.sidebar, action);
-		//ПЕРЕРИСОВАТЬ ДЕРЕВО
+		
 		this.rerenderEntireTree(this._state);
+
 	}
 };
 
