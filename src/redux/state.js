@@ -1,3 +1,7 @@
+import dialogsReducer from "./dialogs-reducer";
+import profileReducer from "./profile-reducer";
+import sidebarReducer from "./sidebar-reducer";
+
 const ADD_POST = 'ADD-POST';
 const UPDATE_POST_TExT = 'UPDATE-POST-TExT';
 const UPDATE_NEW_MESSAGE_BODY = 'UPDATE-NEW-MESSAGE-BODY';
@@ -44,27 +48,13 @@ let store= {
 	  },
 
 	dispatch(action) { //action - это объект, который описывает какое действие совершить. Обязательно имеет type - название действия
-		if (action.type === ADD_POST) { //если action имеет тип ADD-POST
-			let newPost = {
-				id: 5,
-				message: this._state.profilePage.newPostText,
-				likesCount: 0
-			};
-			this._state.profilePage.posts.push(newPost);
-			this._state.profilePage.newPostText = '';
-			this.rerenderEntireTree(this._state);
-		} else if (action.type === UPDATE_POST_TExT) {
-			this._state.profilePage.newPostText = action.newText;
-			this.rerenderEntireTree(this._state);
-		} else if (action.type === UPDATE_NEW_MESSAGE_BODY) {
-			this._state.dialogsPage.newMessageBody = action.body;
-			this.rerenderEntireTree(this._state);
-		} else if (action.type === SEND_MESSAGE) {
-			let body = this._state.dialogsPage.newMessageBody;
-			this._state.dialogsPage.newMessageBody = '';
-			this._state.dialogsPage.messagesData.push({id: 6, message: body});
-			this.rerenderEntireTree(this._state);
-		}
+		
+		this._state.profilePage = profileReducer(this._state.profilePage, action);
+		this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action);
+		this._state.sidebar = sidebarReducer(this._state.sidebar, action);
+		
+		this.rerenderEntireTree(this._state);
+
 	}
 };
 
