@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import store from './redux/state.js';
-import { addPost, updatePostText } from "./redux/state.js";
+import store from './redux/redux-store.js';
+import { addPost, updatePostText } from "./redux/redux-store.js";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -20,7 +20,10 @@ export default rerenderEntireTree;
 
 rerenderEntireTree(store.getState());
 
-store.subscribe(rerenderEntireTree);
+store.subscribe(() => {
+	let state = store.getState();
+	rerenderEntireTree(state);
+});
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
